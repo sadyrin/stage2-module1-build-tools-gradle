@@ -1,7 +1,3 @@
-plugins {
-    id 'application'
-}
-
 repositories {
     mavenCentral()
 }
@@ -14,10 +10,6 @@ java {
     toolchain {
         languageVersion = JavaLanguageVersion.of(8)
     }
-}
-
-application {
-    mainClass = 'demo.Utils'
 }
 
 tasks.named('test') {
