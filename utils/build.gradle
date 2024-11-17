@@ -39,4 +39,8 @@ tasks.named('test') {
     useJUnitPlatform()
 }
 
+test {
+    useJUnitPlatform()
+}
+
 publishMavenPublicationToMavenLocal {}.mustRunAfter('build')
