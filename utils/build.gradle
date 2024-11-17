@@ -1,6 +1,14 @@
 plugins {
-    id 'org.apache.commons'
+    id 'application'
     id 'maven-publish'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation("org.apache.commons:commons-lang3:3.12.0") 
 }
 
 java {
@@ -9,8 +17,8 @@ java {
     }
 }
 
-repositories {
-    mavenCentral()
+application {
+    mainClass = 'utils.StringUtils'
 }
 
 publishing {
@@ -24,9 +32,6 @@ publishing {
         }
     }
 }
-dependencies {
-    implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.10'
-}
 
 jar {
     manifest {
@@ -35,8 +40,6 @@ jar {
     }
 }
 
-test {
+tasks.named('test') {
     useJUnitPlatform()
 }
-
-publishMavenPublicationToMavenLocal {}.mustRunAfter('build')
